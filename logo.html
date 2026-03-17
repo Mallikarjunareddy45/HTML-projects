@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ARJUN AURAX Logo</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #0a0a0f, #000000);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            position: relative;
+            text-align: center;
+        }
+
+        /* Glowing Aura Ring */
+        .ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 320px;
+            height: 320px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: conic-gradient(#00f0ff,
+                    #a020f0,
+                    #ff00cc,
+                    #00f0ff);
+            filter: blur(20px);
+            opacity: 0.6;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Main Text */
+        .logo-text {
+            position: relative;
+            font-size: 42px;
+            letter-spacing: 6px;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-shadow:
+                0 0 10px #00f0ff,
+                0 0 20px #a020f0,
+                0 0 40px #ff00cc;
+        }
+
+        /* Highlight AURAX */
+        .aurax {
+            display: block;
+            font-size: 20px;
+            letter-spacing: 10px;
+            margin-top: 10px;
+            color: #00f0ff;
+            text-shadow:
+                0 0 10px #00f0ff,
+                0 0 25px #00f0ff;
+        }
+
+        /* Flicker Effect */
+        .flicker {
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+
+            45% {
+                opacity: 0.85;
+            }
+
+            55% {
+                opacity: 0.6;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logo-container">
+        <div class="ring"></div>
+
+        <div class="logo-text flicker">
+            ARJUN
+            <span class="aurax">AURAX</span>
+        </div>
+    </div>
+
+    <script>
+        // Subtle mouse interaction glow shift
+        document.addEventListener("mousemove", (e) => {
+            const ring = document.querySelector(".ring");
+            let x = (e.clientX / window.innerWidth - 0.5) * 20;
+            let y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+            ring.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+        });
+    </script>
+
+</body>
+
+</html>
